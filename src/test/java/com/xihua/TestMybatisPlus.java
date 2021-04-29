@@ -117,4 +117,10 @@ public class TestMybatisPlus {
         int update = personMapper.updateById(user);
         Assert.assertEquals(5, update);
     }
+
+    @Test
+    public void testCheckOutBranch() {
+        System.out.println(("----- test checkout branch ------"));
+    }
+
 }
