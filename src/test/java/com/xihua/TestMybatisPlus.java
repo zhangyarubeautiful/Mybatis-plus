@@ -123,4 +123,9 @@ public class TestMybatisPlus {
         System.out.println(("----- test checkout branch ------"));
     }
 
+    @Test
+    public void testLocalMasterCheckOutBranch() {
+        System.out.println(("----- test Local Master checkout branch ------"));
+    }
+
 }
