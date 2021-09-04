@@ -8,12 +8,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * The type User controller.
+ */
 @RestController
 public class UserController {
 
     @Autowired
     private UserService userService;
 
+    /**
+     * List user list.
+     *
+     * @return the list
+     */
     @GetMapping("/user")
     public List<User> listUser(){
         return userService.getUserList();

@@ -15,12 +15,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The type Code generator.
+ */
 public class CodeGenerator {
 
     /**
      * <p>
      * 读取控制台内容
      * </p>
+     *
+     * @param tip the tip
+     * @return the string
      */
     public static String scanner(String tip) {
         Scanner scanner = new Scanner(System.in);
@@ -36,6 +42,11 @@ public class CodeGenerator {
         throw new MybatisPlusException("请输入正确的" + tip + "！");
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
@@ -57,7 +68,7 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai");
+        dsc.setUrl("jdbc:mysql://192.168.1.7:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");

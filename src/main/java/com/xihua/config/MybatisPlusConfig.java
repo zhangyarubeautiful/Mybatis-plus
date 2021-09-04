@@ -16,7 +16,12 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan("com.xihua.dao")
 public class MybatisPlusConfig {
 
-    // 最新版
+    /**
+     * Mybatis plus interceptor mybatis plus interceptor.
+     *
+     * @return the mybatis plus interceptor
+     */
+// 最新版
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
@@ -27,6 +32,8 @@ public class MybatisPlusConfig {
     /**
      * 自定义 SqlInjector
      * 里面包含自定义的全局方法
+     *
+     * @return the my logic sql injector
      */
     @Bean
     public MyLogicSqlInjector myLogicSqlInjector() {
@@ -35,6 +42,8 @@ public class MybatisPlusConfig {
 
     /**
      * 自定义公共字段填充处理器
+     *
+     * @return the my meta object handler
      */
     @Bean
     public MyMetaObjectHandler myMetaObjectHandler(){
