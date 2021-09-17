@@ -2,9 +2,12 @@ package com.xihua.methods;
 
 import com.baomidou.mybatisplus.core.injector.AbstractMethod;
 import com.baomidou.mybatisplus.core.metadata.TableInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.executor.keygen.NoKeyGenerator;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.SqlSource;
+
+import java.util.Optional;
 
 /**
  * The type Mysql insert all batch.
@@ -34,7 +37,15 @@ public class MysqlInsertAllBatch extends AbstractMethod {
         final StringBuilder valueSql = new StringBuilder();
         valueSql.append("<foreach collection=\"list\" item=\"item\" index=\"index\" open=\"(\" separator=\"),(\" close=\")\">");
         valueSql.append("#{item.").append(tableInfo.getKeyProperty()).append("},");
-        tableInfo.getFieldList().forEach(x -> valueSql.append("#{item.").append(x.getProperty()).append("},"));
+        tableInfo.getFieldList().forEach(x ->{
+            valueSql.append("#{item.").append(x.getProperty());
+            String typeHandler = Optional.ofNullable(x.getTypeHandler()).map(Class::getCanonicalName).orElse("");
+            if(StringUtils.isNotEmpty(typeHandler)){
+                valueSql.append(" ,typeHandler=").append(typeHandler);
+            }
+            valueSql.append("},");
+        });
+        /*tableInfo.getFieldList().forEach(x -> valueSql.append("#{item.").append(x.getProperty()).append("},"));*/
         valueSql.delete(valueSql.length() - 1, valueSql.length());
         valueSql.append("</foreach>");
         return valueSql.toString();

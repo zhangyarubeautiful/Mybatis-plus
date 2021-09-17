@@ -38,8 +38,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
-                /*.title("swagger-bootstrap-ui RESTful APIS")*/
-                .title("全军装备实力统计RESTful APIS")
+                .title("swagger-bootstrap-ui RESTful APIS")
                 .description("API接口文档")
                 .contact(new Contact("developer","",""))
                 .termsOfServiceUrl("http://127.0.0.1:8080")
