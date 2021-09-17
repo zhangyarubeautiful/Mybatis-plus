@@ -21,7 +21,7 @@ public class MybatisPlusConfig {
      *
      * @return the mybatis plus interceptor
      */
-    // 最新版
+// 最新版
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();

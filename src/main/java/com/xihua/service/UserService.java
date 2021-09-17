@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface UserService {
 
-   /**
-    * Gets user list.
-    *
-    * @return the user list
-    */
-   List<User> getUserList();
+    /**
+     * Gets user list.
+     *
+     * @return the user list
+     */
+    List<User> getUserList();
 
 }
