@@ -1,6 +1,7 @@
 package com.xihua.config;
 
 import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
+import com.xihua.constant.HeaderConstants;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -36,7 +37,7 @@ public class SwaggerConfig {
 
         ParameterBuilder tokenParam = new ParameterBuilder();
         List<Parameter> parameterList = new ArrayList<>();
-        Parameter paramBuild = tokenParam.name("Authorization").description("请求头信息").modelRef(new ModelRef("String"))
+        Parameter paramBuild = tokenParam.name(HeaderConstants.AUTHORIZATION).description("请求头信息").modelRef(new ModelRef("String"))
                 .parameterType("header").required(true).build();
         parameterList.add(paramBuild);
 
